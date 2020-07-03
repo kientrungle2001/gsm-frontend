@@ -6,11 +6,11 @@ class GSMCustomerRouteAccountRegister extends React.Component {
 	render() {
 		return (
 			<>
-                <Route path="/customer/account/register" exact>
-                    <GSMCustomerPageAccountRegister />
-                </Route>
+				<Route path="/customer/account/register" exact>
+					<GSMCustomerPageAccountRegister />
+				</Route>
 			</>
-			);
+		);
 	}
 }
 
