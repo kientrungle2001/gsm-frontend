@@ -1,24 +1,19 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
-  Switch,
-  Route
+  Switch
 } from "react-router-dom";
-import { Container, Row, Col } from './app/code/GSM/Bootstrap/Block/Bootstrap';
 import Navbar from './app/code/GSM/Menu/Block/Navbar';
 import Menu from './app/code/GSM/Menu/Block/Menu';
-import Account from './app/code/GSM/Customer/Block/Account';
-import Grid from './app/code/GSM/Customer/Block/AccountGrid';
 
-import customerConfig from './app/code/GSM/Customer/config/grid';
 import menuConfig from './app/code/GSM/Menu/config/menu';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import $ from 'jquery';
+import AppRoutes from './app/etc/Routes';
 
-let { rows, header } = customerConfig;
 let {mainMenu} = menuConfig;
 function App() {
   return (
@@ -29,7 +24,7 @@ function App() {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div className="collapse navbar-collapse">
             <Menu items={mainMenu} className="navbar-nav mr-auto" level={0} />
             <form className="form-inline my-2 my-lg-0">
               <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
@@ -41,30 +36,7 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
-            <h1>About</h1>
-          </Route>
-          <Route path="/users">
-            <h1>Users</h1>
-          </Route>
-          <Route path="/">
-            <div>
-              <Container fluid>
-                <Row>
-                  <Col lg="4">
-                    <Account message="Start learning Reactjs" />
-                  </Col>
-                  <Col lg="4">
-                    <Account message="ReactJs is easy" type="danger" />
-                  </Col>
-                  <Col lg="4">
-                    <Account message="It funny but from fb" type="warning" />
-                  </Col>
-                </Row>
-              </Container>
-              <Grid rows={rows} header={header} />
-            </div>
-          </Route>
+          <AppRoutes />
         </Switch>
       </div>
     </Router>
