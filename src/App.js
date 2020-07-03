@@ -8,7 +8,7 @@ import Menu from './app/code/GSM/Menu/Block/Menu';
 
 import menuConfig from './app/code/GSM/Menu/config/menu';
 
-import './App.css';
+import './App.scss';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import $ from 'jquery';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { faUser, faKey } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import '../../web/style.css';
+import '../../web/style.scss';
 import { Link } from 'react-router-dom';
 
 class GSMCustomerPageAccountLogin extends React.Component {
