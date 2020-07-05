@@ -1,7 +1,7 @@
 var endpoints = {
 	rootUrl: 'http://gsmapi.com',
 	routes: {
-		customer_account_login: '/customer/account/login'
+		customer_account_login: '/account/login'
 	},
 	url: function(url) {
 		return this.rootUrl + this.routes[url];
@@ -18,6 +18,12 @@ var endpoints = {
 				throw httpError;
 			}
 		};
+	},
+	request: function(promiseCaller) {
+		var promiseObj = promiseCaller().catch(endpoints.axiosErrorHandler()).then(function(resp) {
+			return resp.data;
+		});
+		return promiseObj;
 	}
 };
 export default endpoints;
