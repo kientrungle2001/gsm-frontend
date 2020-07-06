@@ -2,6 +2,7 @@ import React from 'react';
 import AccountLoginRoute from './Account/Login';
 import AccountRegisterRoute from './Account/Register';
 import AccountForgotPasswordRoute from './Account/ForgotPassword';
+import AccountInfoRoute from './Account/Info';
 
 class GSMCustomerRouteCustomer extends React.Component {
 	render() {
@@ -10,6 +11,7 @@ class GSMCustomerRouteCustomer extends React.Component {
 				<AccountLoginRoute />
 				<AccountRegisterRoute />
 				<AccountForgotPasswordRoute />
+				<AccountInfoRoute />
 			</>
 		)
 
