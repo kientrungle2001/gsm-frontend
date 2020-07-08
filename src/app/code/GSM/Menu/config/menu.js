@@ -13,15 +13,15 @@ var mainMenu = [
 				items: [
 					{
 						name: 'Đăng ký',
-						path: '/customer/account/register'
+						path: '/user/account/register'
 					},
 					{
 						name: 'Đăng nhập',
-						path: '/customer/account/login'
+						path: '/user/account/login'
 					},
 					{
 						name: 'Quên mật khẩu',
-						path: '/customer/account/forgotpassword'
+						path: '/user/account/forgotpassword'
 					}
 				]
 			}

@@ -2,7 +2,7 @@ import Axios from "axios";
 import endpoints from "../../../../etc/endpoints";
 
 var AccountManagement = {
-	login_route: 'customer_account_login',
+	login_route: 'user_account_login',
 	login: function (email, password) {
 		var that = this;
 		return endpoints.request(function(){

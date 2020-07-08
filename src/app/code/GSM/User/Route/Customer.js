@@ -4,7 +4,7 @@ import AccountRegisterRoute from './Account/Register';
 import AccountForgotPasswordRoute from './Account/ForgotPassword';
 import AccountInfoRoute from './Account/Info';
 
-class GSMCustomerRouteCustomer extends React.Component {
+class GSMUserRouteUser extends React.Component {
 	render() {
 		return (
 			<>
@@ -18,4 +18,4 @@ class GSMCustomerRouteCustomer extends React.Component {
 	}
 }
 
-export default GSMCustomerRouteCustomer;
+export default GSMUserRouteUser;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class GSMCustomerBlockAccount extends React.Component {
+class GSMUserBlockAccount extends React.Component {
 	render() {
 		let {message, type} = this.props;
 		return <div className="mt-3">
@@ -9,4 +9,4 @@ class GSMCustomerBlockAccount extends React.Component {
 	}
 }
 
-export default GSMCustomerBlockAccount;
+export default GSMUserBlockAccount;

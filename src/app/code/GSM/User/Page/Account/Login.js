@@ -5,7 +5,7 @@ import '../../web/style.scss';
 import { Link } from 'react-router-dom';
 import AccountManagement from '../../Model/AccountManagement';
 
-class GSMCustomerPageAccountLogin extends React.Component {
+class GSMUserPageAccountLogin extends React.Component {
 	constructor(props) {
 		super(props);
 		this.emailRef = React.createRef();
@@ -88,10 +88,10 @@ class GSMCustomerPageAccountLogin extends React.Component {
 								</div>
 								<div className="card-footer">
 									<div className="d-flex justify-content-center links">
-										Chưa có tài khoản? <Link to="/customer/account/register">Đăng ký</Link>
+										Chưa có tài khoản? <Link to="/user/account/register">Đăng ký</Link>
 									</div>
 									<div className="d-flex justify-content-center">
-										<Link to="/customer/account/forgotpassword">Quên mật khẩu?</Link>
+										<Link to="/user/account/forgotpassword">Quên mật khẩu?</Link>
 									</div>
 								</div>
 							</div>
@@ -103,4 +103,4 @@ class GSMCustomerPageAccountLogin extends React.Component {
 	}
 }
 
-export default GSMCustomerPageAccountLogin;
+export default GSMUserPageAccountLogin;

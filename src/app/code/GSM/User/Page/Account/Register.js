@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../../web/style.scss';
 import { Link } from 'react-router-dom';
 
-class GSMCustomerPageAccountRegister extends React.Component {
+class GSMUserPageAccountRegister extends React.Component {
     render() {
         return (
             <>
@@ -46,10 +46,10 @@ class GSMCustomerPageAccountRegister extends React.Component {
                                 </div>
                                 <div className="card-footer">
                                     <div className="d-flex justify-content-center links">
-                                        Đã có tài khoản? <Link to="/customer/account/login">Đăng nhập</Link>
+                                        Đã có tài khoản? <Link to="/user/account/login">Đăng nhập</Link>
                                     </div>
                                     <div className="d-flex justify-content-center">
-                                        <Link to="/customer/account/forgotpassword">Quên mật khẩu?</Link>
+                                        <Link to="/user/account/forgotpassword">Quên mật khẩu?</Link>
                                     </div>
                                 </div>
                             </div>
@@ -61,4 +61,4 @@ class GSMCustomerPageAccountRegister extends React.Component {
     }
 }
 
-export default GSMCustomerPageAccountRegister;
+export default GSMUserPageAccountRegister;

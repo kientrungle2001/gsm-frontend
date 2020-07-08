@@ -1,6 +1,6 @@
 import React from 'react';
 
-class GSMCustomerBlockAccountGrid extends React.Component {
+class GSMUserBlockAccountGrid extends React.Component {
 	render() {
 		let {rows, header} = this.props;
 		return <div className="container mt-3">
@@ -50,4 +50,4 @@ class GSMCustomerBlockAccountGrid extends React.Component {
 	}
 }
 
-export default GSMCustomerBlockAccountGrid;
+export default GSMUserBlockAccountGrid;
