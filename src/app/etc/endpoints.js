@@ -1,7 +1,7 @@
 var endpoints = {
 	rootUrl: 'http://gsmapi.com',
 	routes: {
-		customer_account_login: '/account/login'
+		user_account_login: '/account/login'
 	},
 	url: function(url) {
 		return this.rootUrl + this.routes[url];
