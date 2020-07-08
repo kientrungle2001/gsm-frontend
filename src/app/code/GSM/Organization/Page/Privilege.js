@@ -1,54 +1,38 @@
 import React from 'react';
 import '../web/style.scss';
 
-class GSMOrganizationPageIndex extends React.Component {
+class GSMOrganizationPagePrivilege extends React.Component {
 	getItems() {
 		return [
 			{
 				id: 1,
-				name: 'Tổng công ty',
+				name: 'Nguyễn Văn A',
 				parent: '',
-				type: 'Organization',
+				organization: 'Tổng công ty',
+				position: 'Tổng giám đốc',
 				level: 1
 			},
 			{
 				id: 2,
-				name: 'Chi nhánh 1',
-				parent: 'Tổng công ty',
-				type: 'Branch',
+				name: 'Nguyễn Thị B',
+				parent: 'Nguyễn Văn A',
+				organization: 'Chi nhánh 1',
+				position: 'Trưởng phòng',
 				level: 2
 			},
 			{
 				id: 3,
-				name: 'Chi nhánh 2',
-				parent: 'Tổng công ty',
-				type: 'Branch',
-				level: 2
+				name: 'Trần Văn C',
+				parent: 'Nguyễn Thị B',
+				organization: 'Phòng kinh doanh',
+				position: 'Nhân viên',
+				level: 3
 			}
 		];
 	}
 	render() {
 		return (
 			<>
-				<div className="modal" tabindex="-1" role="dialog">
-					<div className="modal-dialog" role="document">
-						<div className="modal-content">
-							<div className="modal-header">
-								<h5 className="modal-title">Modal title</h5>
-								<button type="button" className="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div className="modal-body">
-								<p>Modal body text goes here.</p>
-							</div>
-							<div className="modal-footer">
-								<button type="button" className="btn btn-primary">Save changes</button>
-								<button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-							</div>
-						</div>
-					</div>
-				</div>
 				<div className="admin_page pt-3 pb-3">
 					<div className="container-fluid">
 						<div className="row">
@@ -60,11 +44,16 @@ class GSMOrganizationPageIndex extends React.Component {
 									<div className="card-body">
 										<form>
 											<div className="form-group">
-												<input className="form-control" placeholder="Tên tổ chức" />
+												<input className="form-control" placeholder="Tên nhân viên" />
 											</div>
 											<div className="form-group">
-												<select className="form-control" placeholder="Phạm vi">
-													<option>Phạm vi</option>
+												<select className="form-control" placeholder="Phòng ban">
+													<option>Phòng ban</option>
+												</select>
+											</div>
+											<div className="form-group">
+												<select className="form-control" placeholder="Chức vụ">
+													<option>Chức vụ</option>
 												</select>
 											</div>
 										</form>
@@ -75,7 +64,7 @@ class GSMOrganizationPageIndex extends React.Component {
 							<div className="col-md-9">
 								<div className="card">
 									<div className="card-header">
-										Tổ chức
+										Chức vụ
 									</div>
 
 									<div className="card-body">
@@ -91,7 +80,7 @@ class GSMOrganizationPageIndex extends React.Component {
 												<button className="btn btn-primary">Áp dụng</button>
 											</div>
 											<div className="col-auto">
-												<input className="form-control" placeholder="Tên tổ chức" />
+												<input className="form-control" placeholder="Tên nhân viên" />
 											</div>
 											<div className="col-auto">
 												<button className="btn btn-primary">Tìm kiếm</button>
@@ -101,9 +90,9 @@ class GSMOrganizationPageIndex extends React.Component {
 											<thead>
 												<tr>
 													<th>ID</th>
-													<th>Tên tổ chức</th>
-													<th>Phạm vi</th>
-													<th>Thành viên</th>
+													<th>Phòng ban</th>
+													<th>Chức vụ</th>
+													<th>Quyền hạn</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -111,9 +100,9 @@ class GSMOrganizationPageIndex extends React.Component {
 													return (
 														<tr key={'row-' + index}>
 															<td className="col-id">{row.id}</td>
-															<td className="col-name">{'|' + '____'.repeat(row.level - 1)}{row.name}</td>
-															<td className="col-parent">{row.parent}</td>
-															<td><a href="#">Xem thành viên</a></td>
+															<td><a href="#">{row.organization}</a></td>
+															<td><a href="#">{row.position}</a></td>
+															<td>Quyền hạn</td>
 														</tr>
 													);
 												})}
@@ -142,4 +131,4 @@ class GSMOrganizationPageIndex extends React.Component {
 	}
 }
 
-export default GSMOrganizationPageIndex;
+export default GSMOrganizationPagePrivilege;
