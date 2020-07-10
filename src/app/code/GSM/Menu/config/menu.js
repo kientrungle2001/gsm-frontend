@@ -48,7 +48,87 @@ var mainMenu = [
 				path: '/organization/privilege'
 			}
 		]
-	}
+	},
+	{
+		name: 'TT Khách hàng',
+		path: '#',
+		items: [
+			{
+				name: 'Năm sinh',
+				path: '/customer/attribute/birthyear'
+			},
+			{
+				name: 'Tỉnh thành thường trú',
+				path: '/customer/attribute/location'
+			},
+			{
+				name: 'Giới tính',
+				path: '/customer/attribute/gender'
+			},
+			{
+				name: 'Chiều cao',
+				path: '/customer/attribute/height'
+			},
+			{
+				name: 'Tình trạng hôn nhân',
+				path: '/customer/attribute/marriage'
+			},
+			{
+				name: 'Trình độ học vấn',
+				path: '/customer/attribute/education'
+			},
+			{
+				name: 'Ngành học',
+				path: '/customer/attribute/specialization'
+			}
+		]
+	},
+	{
+		name: 'Tương tác khách hàng',
+		path: '#',
+		items: [
+			{
+				name: 'Kênh khai thác',
+				path: '/customer/interactive/channel'
+			},
+			{
+				name: 'Cách thức tương tác',
+				path: '/customer/interactive/method'
+			},
+			{
+				name: 'Kết quả tương tác',
+				path: '/customer/interactive/result'
+			},
+		]
+	},
+	{
+		name: 'Kinh doanh',
+		path: '#',
+		items: [
+			{
+				name: 'Giao GSM tháng',
+				path: '/sales/customer/goal'
+			},
+			{
+				name: 'Khách hàng tiềm năng',
+				path: '/sales/customer/potential'
+			},
+			{
+				name: 'Khách hàng giao dịch',
+				path: '/sales/customer/using'
+			},
+		]
+	},
+	{
+		name: 'CSKH',
+		path: '#',
+		items: [
+			{
+				name: 'CSKH',
+				path: '/support/customer/record'
+			}
+		]
+	},
 ];
 
 export default {
