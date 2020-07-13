@@ -129,6 +129,48 @@ var mainMenu = [
 			}
 		]
 	},
+	{
+		name: 'Content',
+		path: '#',
+		items: [
+			{
+				name: 'Giao content',
+				path: '/content/assign'
+			},
+			{
+				name: 'Nhập content',
+				path: '/content/record'
+			}
+		]
+	},
+	{
+		name: 'Set kênh QC',
+		path: '#',
+		items: [
+			{
+				name: 'Kênh truyền thông',
+				path: '/ad/channel'
+			},
+			{
+				name: 'Website chính',
+				path: '/ad/website'
+			}
+		]
+	},
+	{
+		name: 'Marketing',
+		path: '#',
+		items: [
+			{
+				name: 'Giao Marketing',
+				path: '/marketing/assign'
+			},
+			{
+				name: 'Nhập Marketing',
+				path: '/marketing/record'
+			}
+		]
+	},
 ];
 
 export default {
