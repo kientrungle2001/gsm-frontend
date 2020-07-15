@@ -1,9 +1,10 @@
 import React from 'react';
 import 'Organization/web/style.scss';
-import { Container, Row, Col, Card, Display, Text, Form, Input, Modal, Btn, Pagination } from 'Bootstrap/Block/Bootstrap';
+import { Container, Row, Col, Form, Btn } from 'Bootstrap/Block/Bootstrap';
 import CommonPagination from 'Common/Pagination/Block/Pagination';
 import CommonModal from 'Common/Modal/Block/Modal';
 import CommonCard from 'Common/Card/Block/Card';
+import CommonGrid from 'Common/Grid/Block/Grid';
 
 class GSMOrganizationPageIndex extends React.Component {
 	getItems() {
@@ -69,32 +70,8 @@ class GSMOrganizationPageIndex extends React.Component {
 											<Btn.Primary onClick={event => {alert('Search')}}>Tìm kiếm</Btn.Primary>
 										</Col.Auto>
 									</Form.Row>
-									<table className="table table-stripped table-bordered">
-										<thead>
-											<tr>
-												<th>ID</th>
-												<th>Tên tổ chức</th>
-												<th>Phạm vi</th>
-												<th>Thành viên</th>
-											</tr>
-										</thead>
-										<tbody>
-											{this.getItems().map(function (row, index) {
-												return (
-													<tr key={'row-' + index}>
-														<td className="col-id">{row.id}</td>
-														<td className="col-name">{'|' + '____'.repeat(row.level - 1)}{row.name}</td>
-														<td className="col-parent">{row.parent}</td>
-														<td><a href="#" data-toggle="modal" data-target="#toggleModal">Xem thành viên</a></td>
-													</tr>
-												);
-											})}
-
-										</tbody>
-									</table>
-									<nav aria-label="Page navigation">
-										<CommonPagination />
-									</nav>
+									<CommonGrid items={this.getItems()}/>
+									<CommonPagination />
 								</CommonCard>
 							</Col>
 						</Row>

@@ -100,8 +100,8 @@ class GSMOrganizationPagePrivilege extends React.Component {
 													return (
 														<tr key={'row-' + index}>
 															<td className="col-id">{row.id}</td>
-															<td><a href="#">{row.organization}</a></td>
-															<td><a href="#">{row.position}</a></td>
+															<td><a href="/">{row.organization}</a></td>
+															<td><a href="/">{row.position}</a></td>
 															<td>Quyền hạn</td>
 														</tr>
 													);

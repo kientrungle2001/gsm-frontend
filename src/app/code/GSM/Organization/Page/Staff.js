@@ -103,8 +103,8 @@ class GSMOrganizationPageStaff extends React.Component {
 															<td className="col-id">{row.id}</td>
 															<td className="col-name">{'|' + '____'.repeat(row.level - 1)}{row.name}</td>
 															<td className="col-parent">{row.parent}</td>
-															<td><a href="#">{row.organization}</a></td>
-															<td><a href="#">{row.position}</a></td>
+															<td><a href="/">{row.organization}</a></td>
+															<td><a href="/">{row.position}</a></td>
 														</tr>
 													);
 												})}

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../../web/style.scss';
 import { Link } from 'react-router-dom';
 import AccountManagement from '../../Model/AccountManagement';
-import {Container, Row, Col, Card, Display, Text, Form, Input} from '../../../Bootstrap/Block/Bootstrap';
+import {Container, Row, Card, Display, Text, Form, Input} from '../../../Bootstrap/Block/Bootstrap';
 
 class GSMUserPageAccountLogin extends React.Component {
 	constructor(props) {

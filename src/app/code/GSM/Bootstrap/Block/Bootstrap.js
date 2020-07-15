@@ -163,7 +163,7 @@ Form.Row = function (props) {
 Form.Control = React.forwardRef(function (props, ref) {
 	let className = 'form-control';
 	className = setDefaultClassName(props, className);
-	if (props.type && props.type == 'select') {
+	if (props.type && props.type === 'select') {
 		return <select className={className} ref={ref}>
 			{props.children}
 		</select>
@@ -172,10 +172,10 @@ Form.Control = React.forwardRef(function (props, ref) {
 		<input type={props.type || 'text'} className={className} ref={ref} placeholder={props.placeholder} />
 	);
 });
-var Input = React.forwardRef(function (props, ref) {
+export var Input = React.forwardRef(function (props, ref) {
 	let className = '';
 	className = setDefaultClassName(props, className);
-	if (props.type && props.type == 'select') {
+	if (props.type && props.type === 'select') {
 		return <select className={className} ref={ref}>
 			{props.children}
 		</select>
@@ -184,7 +184,6 @@ var Input = React.forwardRef(function (props, ref) {
 		<input type={props.type || 'text'} value={props.value} className={className} ref={ref} placeholder={props.placeholder} />
 	);
 });
-export var Input;
 
 Input.Group = function (props) {
 	let className = 'input-group';
