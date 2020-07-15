@@ -1,5 +1,9 @@
 import React from 'react';
-import '../web/style.scss';
+import 'Organization/web/style.scss';
+import { Container, Row, Col, Card, Display, Text, Form, Input, Modal, Btn, Pagination } from 'Bootstrap/Block/Bootstrap';
+import CommonPagination from 'Common/Pagination/Block/Pagination';
+import CommonModal from 'Common/Modal/Block/Modal';
+import CommonCard from 'Common/Card/Block/Card';
 
 class GSMOrganizationPageIndex extends React.Component {
 	getItems() {
@@ -30,112 +34,71 @@ class GSMOrganizationPageIndex extends React.Component {
 	render() {
 		return (
 			<>
-				<div className="modal" tabindex="-1" role="dialog">
-					<div className="modal-dialog" role="document">
-						<div className="modal-content">
-							<div className="modal-header">
-								<h5 className="modal-title">Modal title</h5>
-								<button type="button" className="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div className="modal-body">
-								<p>Modal body text goes here.</p>
-							</div>
-							<div className="modal-footer">
-								<button type="button" className="btn btn-primary">Save changes</button>
-								<button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-							</div>
-						</div>
-					</div>
-				</div>
+				<CommonModal id="toggleModal" title="Modal Dialog Title">
+					<p>Modal content goes here!!!</p>
+				</CommonModal>
 				<div className="admin_page pt-3 pb-3">
-					<div className="container-fluid">
-						<div className="row">
-							<div className="col-md-3">
-								<div className="card">
-									<div className="card-header">
-										Tìm kiếm
-  								</div>
-									<div className="card-body">
-										<form>
-											<div className="form-group">
-												<input className="form-control" placeholder="Tên tổ chức" />
-											</div>
-											<div className="form-group">
-												<select className="form-control" placeholder="Phạm vi">
-													<option>Phạm vi</option>
-												</select>
-											</div>
-										</form>
-									</div>
-								</div>
+					<Container fluid>
+						<Row>
+							<Col md="3">
+								<CommonCard title="Tìm kiếm">
+									<form>
+										<Form.Group.Control placeholder="Tên tổ chức" />
+										<Form.Group.Control type="select" placeholder="Phạm vi">
+											<option>Phạm vi</option>
+										</Form.Group.Control>
+									</form>
+								</CommonCard>
+							</Col>
+							<Col md="9">
+								<CommonCard title="Tổ chức">
+									<Form.Row align-items-center mb-3>
+										<Col.Auto>
+											<Form.Control type="select">
+												<option>Chọn hành động</option>
+												<option>Gán nhân viên</option>
+											</Form.Control>
+										</Col.Auto>
+										<Col.Auto>
+											<Btn.Primary>Áp dụng</Btn.Primary>
+										</Col.Auto>
+										<Col.Auto>
+											<Form.Control placeholder="Tên tổ chức" />
+										</Col.Auto>
+										<Col.Auto>
+											<Btn.Primary onClick={event => {alert('Search')}}>Tìm kiếm</Btn.Primary>
+										</Col.Auto>
+									</Form.Row>
+									<table className="table table-stripped table-bordered">
+										<thead>
+											<tr>
+												<th>ID</th>
+												<th>Tên tổ chức</th>
+												<th>Phạm vi</th>
+												<th>Thành viên</th>
+											</tr>
+										</thead>
+										<tbody>
+											{this.getItems().map(function (row, index) {
+												return (
+													<tr key={'row-' + index}>
+														<td className="col-id">{row.id}</td>
+														<td className="col-name">{'|' + '____'.repeat(row.level - 1)}{row.name}</td>
+														<td className="col-parent">{row.parent}</td>
+														<td><a href="#" data-toggle="modal" data-target="#toggleModal">Xem thành viên</a></td>
+													</tr>
+												);
+											})}
 
-							</div>
-							<div className="col-md-9">
-								<div className="card">
-									<div className="card-header">
-										Tổ chức
-									</div>
-
-									<div className="card-body">
-										<div className="form-row align-items-center mb-3">
-											<div className="col-auto">
-												<select className="form-control">
-													<option>Chọn hành động</option>
-													<option>Gán nhân viên</option>
-												</select>
-
-											</div>
-											<div className="col-auto">
-												<button className="btn btn-primary">Áp dụng</button>
-											</div>
-											<div className="col-auto">
-												<input className="form-control" placeholder="Tên tổ chức" />
-											</div>
-											<div className="col-auto">
-												<button className="btn btn-primary">Tìm kiếm</button>
-											</div>
-										</div>
-										<table className="table table-stripped table-bordered">
-											<thead>
-												<tr>
-													<th>ID</th>
-													<th>Tên tổ chức</th>
-													<th>Phạm vi</th>
-													<th>Thành viên</th>
-												</tr>
-											</thead>
-											<tbody>
-												{this.getItems().map(function (row, index) {
-													return (
-														<tr key={'row-' + index}>
-															<td className="col-id">{row.id}</td>
-															<td className="col-name">{'|' + '____'.repeat(row.level - 1)}{row.name}</td>
-															<td className="col-parent">{row.parent}</td>
-															<td><a href="#">Xem thành viên</a></td>
-														</tr>
-													);
-												})}
-
-											</tbody>
-										</table>
-										<nav ariaLabel="Page navigation example">
-											<ul className="pagination">
-												<li className="page-item"><a className="page-link" href="/">|&lt;</a></li>
-												<li className="page-item"><a className="page-link" href="/">&lt;&lt;</a></li>
-												<li className="page-item"><a className="page-link" href="/">1</a></li>
-												<li className="page-item"><a className="page-link" href="/">2</a></li>
-												<li className="page-item"><a className="page-link" href="/">3</a></li>
-												<li className="page-item"><a className="page-link" href="/">&gt;&gt;</a></li>
-												<li className="page-item"><a className="page-link" href="/">&gt;|</a></li>
-											</ul>
-										</nav>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+										</tbody>
+									</table>
+									<nav aria-label="Page navigation">
+										<CommonPagination />
+									</nav>
+								</CommonCard>
+							</Col>
+						</Row>
+					</Container>
 				</div>
 			</>
 		);

@@ -3,13 +3,13 @@ import {
 	BrowserRouter as Router,
 	Switch
 } from "react-router-dom";
-import Navbar from './app/code/GSM/Menu/Block/Navbar';
-import Menu from './app/code/GSM/Menu/Block/Menu';
+import Navbar from 'Menu/Block/Navbar';
+import Menu from 'Menu/Block/Menu';
 
-import menuConfig from './app/code/GSM/Menu/config/menu';
+import menuConfig from 'Menu/config/menu';
 
 import './App.scss';
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import $ from 'jquery';
 import AppRoutes from './app/etc/Routes';
