@@ -49,7 +49,7 @@ class GSMUserPageAccountLogin extends React.Component {
 		return (
 			<>
 				<div className="account_page">
-					<Container mt-5>
+					<Container mt-5 className="hello" fluid>
 						<Display.Flex justify-content-center h-100>
 							<Card>
 								<Card.Header>

@@ -136,7 +136,7 @@ Form.Group = function (props) {
 	let className = 'form-group';
 	className = setDefaultClassName(props, className);
 	return (
-		<div className={className}>
+		<div className={className} name={props.name}>
 			{props.children}
 		</div>
 	);
@@ -144,7 +144,7 @@ Form.Group = function (props) {
 
 Form.Group.Control = function(props) {
 	return (
-		<Form.Group>
+		<Form.Group name="hello">
 			<Form.Control {...props} />
 		</Form.Group>
 	);
