@@ -1,26 +1,21 @@
 import React from 'react';
+import CommonGridBlockHeader from './Header';
+import CommonGridBlockItem from './Item';
 
 class CommonGridBlockGrid extends React.Component {
 	render() {
+		let Header = this.props.headerComponent || CommonGridBlockHeader;
+		let Item = this.props.itemComponent || CommonGridBlockItem;
+		let that = this;
 		return (
 			<table className="table table-stripped table-bordered">
 				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Tên tổ chức</th>
-						<th>Phạm vi</th>
-						<th>Thành viên</th>
-					</tr>
+					<Header headers={this.props.headers} />
 				</thead>
 				<tbody>
 					{this.props.items && this.props.items.map(function (row, index) {
 						return (
-							<tr key={'row-' + index}>
-								<td className="col-id">{row.id}</td>
-								<td className="col-name">{'|' + '____'.repeat(row.level - 1)}{row.name}</td>
-								<td className="col-parent">{row.parent}</td>
-								<td><a href="/" data-toggle="modal" data-target="#toggleModal">Xem thành viên</a></td>
-							</tr>
+							<Item row={row} key={index} headers={that.props.headers} />
 						);
 					})}
 
