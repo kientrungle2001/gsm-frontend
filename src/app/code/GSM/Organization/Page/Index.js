@@ -1,12 +1,14 @@
 import React from 'react';
 import 'Organization/web/style.scss';
-import Pagination from 'Common/Pagination/Block/Pagination';
-import Modal from 'Common/Modal/Block/Modal';
-import Grid from 'Common/Grid/Block/Grid';
-import CellModal from 'Common/Grid/Block/Cell/Modal';
-import OrganizationActions from 'Organization/Block/Index/Actions';
-import TwoColumns from 'GSM/Layout/Block/TwoColumns';
-import OrganizationSearchForm from '../Block/Index/SearchForm';
+import Pagination from 'Pagination/Block/Pagination';
+import Modal from 'Modal/Block/Modal';
+import Grid from 'Grid/Block/Grid';
+import CellModal from 'Grid/Block/Cell/Modal';
+import CellNumeric from 'Grid/Block/Cell/Numeric';
+import CellTree from 'Grid/Block/Cell/Tree';
+import TwoColumns from 'Layout/Block/TwoColumns';
+import Actions from 'Organization/Block/Index/Actions';
+import SearchForm from 'Organization/Block/Index/SearchForm';
 
 class GSMOrganizationPageIndex extends React.Component {
 	getHeaders() {
@@ -15,11 +17,13 @@ class GSMOrganizationPageIndex extends React.Component {
 				name: 'ID',
 				column: 'id',
 				sortable: true,
+				CellComponent: CellNumeric
 			},
 			{
 				name: 'Tên tổ chức',
 				column: 'name',
 				sortable: true,
+				CellComponent: CellTree
 			},
 			{
 				name: 'Phạm vi',
@@ -69,10 +73,10 @@ class GSMOrganizationPageIndex extends React.Component {
 					<p>Modal content goes here!!!</p>
 				</Modal>
 				<TwoColumns rightColumnTitle="Tổ chức" leftColumnComponent={
-					<OrganizationSearchForm />
+					<SearchForm />
 				} rightColumnComponent={
 					<>
-						<OrganizationActions />
+						<Actions />
 						<Grid items={this.getItems()} headers={this.getHeaders()} />
 						<Pagination />
 					</>
