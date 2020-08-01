@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import CoreOrganizationPageOrganization from 'Organization/Page/Organization';
+import CoreOrganizationPageOrganization from 'Organization/Page/Admin/Organization';
 
 class CoreOrganizationRouteAdminOrganization extends React.Component {
 	render() {

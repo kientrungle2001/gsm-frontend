@@ -1,5 +1,5 @@
 import React from 'react';
-import '../web/style.scss';
+import 'Organization/web/style.scss';
 
 class CoreOrganizationPageStaff extends React.Component {
 	getItems() {

@@ -1,7 +1,7 @@
 import React from 'react';
-import '../web/style.scss';
+import 'Organization/web/style.scss';
 
-class CoreOrganizationPagePosition extends React.Component {
+class CoreOrganizationPageAdminPosition extends React.Component {
 	getItems() {
 		return [
 			{
@@ -123,4 +123,4 @@ class CoreOrganizationPagePosition extends React.Component {
 	}
 }
 
-export default CoreOrganizationPagePosition;
+export default CoreOrganizationPageAdminPosition;

@@ -1,7 +1,7 @@
 import React from 'react';
-import '../web/style.scss';
+import 'Organization/web/style.scss';
 
-class CoreOrganizationPagePrivilege extends React.Component {
+class CoreOrganizationPageAdminPrivilege extends React.Component {
 	getItems() {
 		return [
 			{
@@ -131,4 +131,4 @@ class CoreOrganizationPagePrivilege extends React.Component {
 	}
 }
 
-export default CoreOrganizationPagePrivilege;
+export default CoreOrganizationPageAdminPrivilege;

@@ -3,7 +3,7 @@ import CellModal from 'Grid/Block/Cell/Modal';
 import CellNumeric from 'Grid/Block/Cell/Numeric';
 import CellTree from 'Grid/Block/Cell/Tree';
 import CommonGridPageGrid from 'Grid/Page/Grid';
-class CoreOrganizationPageOrganization extends CommonGridPageGrid {
+class CoreOrganizationPageAdminOrganization extends CommonGridPageGrid {
 	url = 'http://localhost:1337/coreusers';
 	title = 'Tổ chức';
 	getHeaders() {
@@ -78,4 +78,4 @@ class CoreOrganizationPageOrganization extends CommonGridPageGrid {
 
 }
 
-export default CoreOrganizationPageOrganization;
+export default CoreOrganizationPageAdminOrganization;

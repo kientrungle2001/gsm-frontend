@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import CoreOrganizationPagePrivilege from 'Organization/Page/Privilege';
+import AdminPrivilege from 'Organization/Page/Admin/Privilege';
 
 class CoreOrganizationRoutePrivilege extends React.Component {
 	render() {
 		return (
 			<>
 				<Route path="/organization/privilege" exact>
-					<CoreOrganizationPagePrivilege />
+					<AdminPrivilege />
 				</Route>
 			</>
 		);
