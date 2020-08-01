@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import CoreOrganizationPagePosition from '../Page/Position';
+import CoreOrganizationPagePosition from 'Organization/Page/Position';
 
 class CoreOrganizationRoutePosition extends React.Component {
 	render() {

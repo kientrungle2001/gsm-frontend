@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import CoreOrganizationPageStaff from '../Page/Staff';
+import CoreOrganizationPageStaff from 'Organization/Page/Staff';
 
 class CoreOrganizationRouteStaff extends React.Component {
 	render() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import CoreOrganizationPagePrivilege from '../Page/Privilege';
+import CoreOrganizationPagePrivilege from 'Organization/Page/Privilege';
 
 class CoreOrganizationRoutePrivilege extends React.Component {
 	render() {
