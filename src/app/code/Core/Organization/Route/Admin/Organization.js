@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import CoreOrganizationPageOrganization from 'Organization/Page/Admin/Organization';
+import AdminOrganization from 'Organization/Page/Admin/Organization';
 
 class CoreOrganizationRouteAdminOrganization extends React.Component {
 	render() {
 		return (
 			<>
 				<Route path="/organization/index" exact>
-					<CoreOrganizationPageOrganization />
+					<AdminOrganization />
 				</Route>
 			</>
 		);
