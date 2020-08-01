@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from '../../../Core/Bootstrap/Block/Bootstrap';
+import { Card } from 'Bootstrap/Block/Bootstrap';
 
 class CommonCardBlockCard extends React.Component {
 	render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Modal, Btn} from '../../../Core/Bootstrap/Block/Bootstrap';
+import {Modal, Btn} from 'Bootstrap/Block/Bootstrap';
 
 class CommonModalBlockModal extends React.Component {
 	render() {
