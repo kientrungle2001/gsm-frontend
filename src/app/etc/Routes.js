@@ -1,13 +1,13 @@
 import React from 'react';
-import GSMUserRouteUser from 'User/Route/User';
-import GSMOrganizationRoute from 'Organization/Route/Organization';
+import CoreUserRouteUser from 'User/Route/User';
+import CoreOrganizationRoute from 'Organization/Route/Organization';
 
 class AppRoutes extends React.Component {
 	render() {
 		return (
 			<>
-				<GSMUserRouteUser />
-				<GSMOrganizationRoute />
+				<CoreUserRouteUser />
+				<CoreOrganizationRoute />
 			</>
 		)
 
