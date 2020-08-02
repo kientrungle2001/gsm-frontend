@@ -10,9 +10,15 @@ import Axios from 'axios';
 
 class CommonGridPageGrid extends React.Component {
 	url = 'http://api2.nextnobels.com/coreusers';
-	title = 'Tổ chức';
-	searchForm = SearchForm;
-	actionForm = Actions;
+	getTitle() {
+		return 'Tổ chức';
+	}
+	getSearchForm() {
+		return SearchForm;
+	}
+	getActionForm() {
+		return Actions;
+	}
 	getHeaders() {
 		return [];
 	}
@@ -61,14 +67,14 @@ class CommonGridPageGrid extends React.Component {
 		return d;
 	}
 	render() {
-		let SearchFormObj = this.searchForm;
-		let ActionFormObj = this.actionForm;
+		let SearchFormObj = this.getSearchForm();
+		let ActionFormObj = this.getActionForm();
 		return (
 			<>
 				<Modal id="toggleModal" title="Modal Dialog Title">
 					<p>Modal content goes here!!!</p>
 				</Modal>
-				<TwoColumns rightColumnTitle={this.title} leftColumnComponent={
+				<TwoColumns rightColumnTitle={this.getTitle()} leftColumnComponent={
 					<SearchFormObj filters={this.getFilters()} />
 				} rightColumnComponent={
 					<>
