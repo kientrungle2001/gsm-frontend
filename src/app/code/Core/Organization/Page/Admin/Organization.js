@@ -2,10 +2,14 @@ import 'Organization/web/style.scss';
 import CellModal from 'Grid/Block/Cell/Modal';
 import CellNumeric from 'Grid/Block/Cell/Numeric';
 import CellTree from 'Grid/Block/Cell/Tree';
-import CommonGridPageGrid from 'Grid/Page/Grid';
-class CoreOrganizationPageAdminOrganization extends CommonGridPageGrid {
+import Grid from 'Grid/Page/Grid';
+import FilterSelect from 'Grid/Block/Filter/Select';
+
+class CoreOrganizationPageAdminOrganization extends Grid {
 	url = 'http://localhost:1337/organizations';
-	title = 'Tổ chức';
+	getTitle() {
+		return 'Tổ chức';
+	}
 	getHeaders() {
 		return [
 			{
@@ -45,29 +49,20 @@ class CoreOrganizationPageAdminOrganization extends CommonGridPageGrid {
 	getFilters() {
 		return [{
 			title: 'Phạm vi',
-			options: [
-				{
-					value: 1,
-					label: 'Tổng công ty'
-				},
-				{
-					value: 2,
-					label: 'Chi nhánh A'
-				},
-			]
+			FilterComponent: FilterSelect,
+			url: this.url,
+			labelField: 'name',
+			valueField: 'id'
 		},
 		{
 			title: 'Tỉnh thành',
-			options: [
-				{
-					value: 1,
-					label: 'Hà Nội'
-				},
-				{
-					value: 2,
-					label: 'Hồ Chí Minh'
-				},
-			]
+			FilterComponent: FilterSelect,
+			url: 'http://localhost:1337/locations',
+			params: {
+				type: 'Province'
+			},
+			labelField: 'name',
+			valueField: 'id'
 		}];
 	}
 
