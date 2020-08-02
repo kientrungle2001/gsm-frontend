@@ -4,7 +4,7 @@ import CellNumeric from 'Grid/Block/Cell/Numeric';
 import CellTree from 'Grid/Block/Cell/Tree';
 import CommonGridPageGrid from 'Grid/Page/Grid';
 class CoreOrganizationPageAdminOrganization extends CommonGridPageGrid {
-	url = 'http://localhost:1337/coreusers';
+	url = 'http://localhost:1337/organizations';
 	title = 'Tổ chức';
 	getHeaders() {
 		return [
@@ -15,15 +15,10 @@ class CoreOrganizationPageAdminOrganization extends CommonGridPageGrid {
 				CellComponent: CellNumeric
 			},
 			{
-				name: 'Họ và tên',
+				name: 'Tên tổ chức',
 				column: 'name',
 				sortable: true,
 				CellComponent: CellTree
-			},
-			{
-				name: 'Tên đăng nhập',
-				column: 'username',
-				sortable: true,
 			},
 			{
 				name: 'Email',
