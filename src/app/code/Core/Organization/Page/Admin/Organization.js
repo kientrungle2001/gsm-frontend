@@ -43,6 +43,24 @@ class CoreOrganizationPageAdminOrganization extends Grid {
 					alert(row.id);
 				}
 			},
+			{
+				name: 'Sửa',
+				column: 'action_edit',
+				sortable: true,
+				CellComponent: CellModal,
+				action: function (row) {
+					alert(row.id);
+				}
+			},
+			{
+				name: 'Xóa',
+				column: 'action_del',
+				sortable: true,
+				CellComponent: CellModal,
+				action: function (row) {
+					alert(row.id);
+				}
+			},
 		];
 	}
 

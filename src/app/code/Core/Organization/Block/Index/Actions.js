@@ -14,12 +14,6 @@ class CoreOrganizationBlocIndexActions extends React.Component {
 				<Col.Auto>
 					<Btn.Primary>Áp dụng</Btn.Primary>
 				</Col.Auto>
-				<Col.Auto>
-					<Form.Control placeholder="Tên tổ chức" />
-				</Col.Auto>
-				<Col.Auto>
-					<Btn.Primary onClick={event => { alert('Search') }}>Tìm kiếm</Btn.Primary>
-				</Col.Auto>
 			</Form.Row>
 		)
 	}
