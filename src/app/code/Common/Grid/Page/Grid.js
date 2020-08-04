@@ -47,6 +47,12 @@ class CommonGridPageGrid extends React.Component {
 		});
 	}
 
+	delItem(id) {
+		Axios.delete(this.url + '/' + id).then((resp) => {
+			this.loadItems();
+		});
+	}
+
 	changePage(page) {
 		this.setStateParams({ currentPage: page });
 		this.loadItems();

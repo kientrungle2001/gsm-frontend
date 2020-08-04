@@ -1,9 +1,12 @@
 import 'Organization/web/style.scss';
-import CellModal from 'Grid/Block/Cell/Modal';
+import CellLink from 'Grid/Block/Cell/Link';
+import CellButton from 'Grid/Block/Cell/Button';
 import CellNumeric from 'Grid/Block/Cell/Numeric';
 import CellTree from 'Grid/Block/Cell/Tree';
+import CellMultiple from 'Grid/Block/Cell/Multiple';
 import Grid from 'Grid/Page/Grid';
 import FilterSelect from 'Grid/Block/Filter/Select';
+import {Btn} from 'Bootstrap/Block/Bootstrap';
 
 class CoreOrganizationPageAdminOrganization extends Grid {
 	url = 'http://localhost:1337/organizations';
@@ -11,6 +14,7 @@ class CoreOrganizationPageAdminOrganization extends Grid {
 		return 'Tổ chức';
 	}
 	getHeaders() {
+		let that = this;
 		return [
 			{
 				name: 'ID',
@@ -37,30 +41,44 @@ class CoreOrganizationPageAdminOrganization extends Grid {
 			{
 				name: 'Thành viên',
 				column: 'members',
-				sortable: true,
-				CellComponent: CellModal,
-				action: function (row) {
-					alert(row.id);
+				sortable: false,
+				CellComponent: CellLink,
+				type: CellLink.TYPE_LINK,
+				href: function(row) {
+					return '/organization/staff/organizationId/' + row.id;
 				}
 			},
 			{
-				name: 'Sửa',
-				column: 'action_edit',
-				sortable: true,
-				CellComponent: CellModal,
-				action: function (row) {
-					alert(row.id);
-				}
-			},
-			{
-				name: 'Xóa',
-				column: 'action_del',
-				sortable: true,
-				CellComponent: CellModal,
-				action: function (row) {
-					alert(row.id);
-				}
-			},
+				name: 'Hành động',
+				column: 'action_multiple',
+				sortable: false,
+				CellComponent: CellMultiple,
+				delimiter: ' ',
+				elements: [
+					{
+						name: 'Sửa',
+						column: 'action_edit',
+						sortable: false,
+						CellComponent: CellLink,
+						type: CellLink.TYPE_LINK,
+						href: function(row) {
+							return '/organization/edit/id/' + row.id;
+						}
+					},
+					{
+						name: 'Xóa',
+						column: 'action_del',
+						sortable: false,
+						CellComponent: CellButton,
+						BtnComponent: Btn.Danger,
+						action: function (row) {
+							if(window.confirm('Bạn có muốn xóa bản ghi ' + row.id + '?')) {
+								that.delItem(row.id);
+							}
+						}
+					}
+				]
+			}
 		];
 	}
 
