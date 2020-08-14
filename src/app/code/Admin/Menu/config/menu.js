@@ -1,3 +1,5 @@
+import organizationRoutes from 'Organization/etc/routes';
+
 var mainMenu = [
 	{
 		name: 'Trang chủ',
@@ -33,7 +35,7 @@ var mainMenu = [
 		items: [
 			{
 				name: 'Tổ chức',
-				path: '/organization/index'
+				path: organizationRoutes.organization.index
 			},
 			{
 				name: 'Chức vị',
