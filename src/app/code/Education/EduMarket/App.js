@@ -9,7 +9,7 @@ import menuConfig from './config/menu';
 
 import 'bootstrap/dist/js/bootstrap.bundle';
 import $ from 'jquery';
-import AppRoutes from 'app/etc/Routes';
+import AppRoutes from './Routes';
 
 let { mainMenu } = menuConfig;
 function EducationEduMarketApp() {
