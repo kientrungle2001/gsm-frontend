@@ -1,13 +1,13 @@
 import React from 'react';
-import CoreUserRouteUser from 'User/Route/User';
-import CoreOrganizationRoute from 'Organization/Route/Organization';
+import AdminUserRouteUser from 'User/Route/User';
+import AdminOrganizationRoute from 'Organization/Route/Organization';
 
 class AppRoutes extends React.Component {
 	render() {
 		return (
 			<>
-				<CoreUserRouteUser />
-				<CoreOrganizationRoute />
+				<AdminUserRouteUser />
+				<AdminOrganizationRoute />
 			</>
 		)
 
