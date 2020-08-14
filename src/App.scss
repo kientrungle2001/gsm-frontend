@@ -1,3 +1,19 @@
+$blue: blue;
+$enable-shadows: true;
+$enable-gradients: true;
+$enable-hover-media-query: true;
+$enable-responsive-font-sizes: true;
+
+$spacer: 0.5rem;
+$paragraph-margin-bottom: 0.5rem;
+$grid-columns: 12;
+$grid-gutter-width: 10px;
+
+$card-spacer-y:                     .25rem !default;
+$card-spacer-x:                     0.75rem !default;
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
 .App {
 	text-align: center;
 }
