@@ -1,17 +1,17 @@
 import React from 'react';
-import AdminOrganizationRoute from './Admin/Organization';
-import AdminPositionRoute from './Admin/Position';
-import AdminStaffRoute from './Admin/Staff';
-import AdminPrivilegeRoute from './Admin/Privilege';
+import OrganizationRoute from './Admin/Organization';
+import PositionRoute from './Admin/Position';
+import StaffRoute from './Admin/Staff';
+import PrivilegeRoute from './Admin/Privilege';
 
 class AdminOrganizationRoute extends React.Component {
 	render() {
 		return (
 			<>
-				<AdminOrganizationRoute />
-				<AdminPositionRoute />
-				<AdminStaffRoute />
-				<AdminPrivilegeRoute />
+				<OrganizationRoute />
+				<PositionRoute />
+				<StaffRoute />
+				<PrivilegeRoute />
 			</>
 		)
 
