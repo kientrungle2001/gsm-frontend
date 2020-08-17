@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container, Row, Col } from 'Bootstrap/Block/Bootstrap';
-import CourseList from 'Education/Course/Block/List';
+import CourseDetail from 'Education/Course/Block/Detail';
 import EducationEduMarketBlockCategoryMenu from '../Block/CategoryMenu';
 
-export default function EducationEduMarketPageHome(props) {
+export default function EducationEduMarketPageCourse(props) {
 	return (
 		<>
 			<Container fluid mt-3 mb-3>
@@ -12,7 +12,7 @@ export default function EducationEduMarketPageHome(props) {
 						<EducationEduMarketBlockCategoryMenu categoryId={props.categoryId} />
 					</Col>
 					<Col lg={10}>
-						<CourseList categoryId={props.categoryId} />
+						<CourseDetail courseId={props.courseId} />
 					</Col>
 				</Row>
 			</Container>

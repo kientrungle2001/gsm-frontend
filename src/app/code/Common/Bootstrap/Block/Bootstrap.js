@@ -293,7 +293,12 @@ export function Col(props) {
 	let clsNames = [];
 	colSizes.forEach(function (size) {
 		if (props[size]) {
-			clsNames.push('col-' + size + '-' + props[size]);
+			if(size === 'xs') {
+				clsNames.push('col-' + props[size]);
+			} else {
+				clsNames.push('col-' + size + '-' + props[size]);
+			}
+			
 		}
 	});
 

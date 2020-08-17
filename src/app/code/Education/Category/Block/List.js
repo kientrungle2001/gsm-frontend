@@ -8,7 +8,7 @@ export default function EducationCategoryBlockList({ currentCategoryId }) {
 	}
 	return (
 		<>
-			<ul className="list-group">
+			<ul className="list-group w-100">
 				{categoryIds.map(function (id) {
 					if(parseInt(id) === parseInt(currentCategoryId)) {
 						return (
