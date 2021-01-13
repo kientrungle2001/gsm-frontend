@@ -4,11 +4,84 @@ function setDefaultClassName(props, className, excludes = []) {
 	if (props.className) className += ' ' + (props.className || '');
 	for (var key in props) {
 		if (props[key] === true) {
-			if(excludes.indexOf(key) === -1)
+			if (excludes.indexOf(key) === -1)
 				className += ' ' + key;
 		}
 	}
 	return className;
+}
+
+function setProps(props, propNameList = [], defaultProps = {}) {
+	let extractProps = {};
+	propNameList.forEach(function (value) {
+		extractProps[value] = props[value] || defaultProps[value] || null;
+	});
+	for (var value in props) {
+		if (typeof props[value] !== 'boolean') {
+			if (value !== 'className') {
+				extractProps[value] = props[value];
+			}
+		}
+	}
+	return extractProps;
+}
+
+function generateElementByClassName(className, tagName = null) {
+	if (null === tagName) {
+		return (props) => {
+			let extractProps = setProps(props);
+			className = setDefaultClassName(props, className);
+			return (
+				<div className={className} {...extractProps} >
+					{props.children}
+				</div>
+			);
+		};
+	} else {
+		return (props) => {
+			let extractProps = setProps(props);
+			className = setDefaultClassName(props, className);
+			if (tagName === 'span') {
+				return (
+					<span className={className} {...extractProps} >
+						{props.children}
+					</span>
+				);
+			} else if (tagName === 'ul') {
+				return (
+					<ul className={className} {...extractProps} >
+						{props.children}
+					</ul>
+				);
+			} else if (tagName === 'li') {
+				return (
+					<li className={className} {...extractProps} >
+						{props.children}
+					</li>
+				);
+			} else if (tagName === 'button') {
+				return (
+					<button className={className} {...extractProps} >
+						{props.children}
+					</button>
+				);
+			} else if (tagName === 'a') {
+				return (
+					<a className={className} {...extractProps} >
+						{props.children}
+					</a>
+				);
+			} else if (tagName === 'h5') {
+				return (
+					<h5 className={className} {...extractProps} >
+						{props.children}
+					</h5>
+				);
+			}
+
+		};
+	}
+
 }
 
 export function Container(props) {
@@ -22,143 +95,33 @@ export function Container(props) {
 	);
 }
 
-export function Row(props) {
-	let className = 'row';
-	className = setDefaultClassName(props, className);
-	return (
-		<div className={className}>
-			{props.children}
-		</div>
-	);
-}
+export var Row = generateElementByClassName('row');
 
-export function Card(props) {
-	let className = 'card';
-	className = setDefaultClassName(props, className);
-	return (
-		<div className={className}>
-			{props.children}
-		</div>
-	);
-}
+export var Card = generateElementByClassName('card');
+Card.Header = generateElementByClassName('card-header');
+Card.Body = generateElementByClassName('card-body');
+Card.Footer = generateElementByClassName('card-footer');
 
-Card.Header = function (props) {
-	let className = 'card-header';
-	className = setDefaultClassName(props, className);
-	return (
-		<div className={className}>
-			{props.children}
-		</div>
-	);
-}
+export var Display = generateElementByClassName('d');
+Display.Flex = generateElementByClassName('d-flex');
 
-Card.Body = function (props) {
-	let className = 'card-body';
-	className = setDefaultClassName(props, className);
-	return (
-		<div className={className}>
-			{props.children}
-		</div>
-	);
-}
+export var Text = generateElementByClassName('text');
+Text.Center = generateElementByClassName('text-center');
+Text.Danger = generateElementByClassName('text text-danger', 'span');
 
-Card.Footer = function (props) {
-	let className = 'card-footer';
-	className = setDefaultClassName(props, className);
-	return (
-		<div className={className}>
-			{props.children}
-		</div>
-	);
-}
+export var Form = generateElementByClassName('form');
 
-export function Display(props) {
-	let className = 'd';
-	className = setDefaultClassName(props, className);
-	return (
-		<div className={className}>
-			{props.children}
-		</div>
-	);
-}
+Form.Group = generateElementByClassName('form-group');
 
-Display.Flex = function (props) {
-	let className = 'd-flex';
-	className = setDefaultClassName(props, className);
+Form.Group.Control = function (props) {
 	return (
-		<div className={className}>
-			{props.children}
-		</div>
-	);
-}
-
-export function Text(props) {
-	let className = 'text';
-	className = setDefaultClassName(props, className);
-	return (
-		<div className={className}>
-			{props.children}
-		</div>
-	);
-}
-
-Text.Center = function (props) {
-	let className = 'text-center';
-	className = setDefaultClassName(props, className);
-	return (
-		<div className={className}>
-			{props.children}
-		</div>
-	);
-}
-
-Text.Danger = function (props) {
-	let className = 'text text-danger';
-	className = setDefaultClassName(props, className);
-	return (
-		<span className={className}>
-			{props.children}
-		</span>
-	);
-}
-
-export function Form(props) {
-	let className = 'form';
-	className = setDefaultClassName(props, className);
-	return (
-		<div className={className}>
-			{props.children}
-		</div>
-	);
-}
-
-Form.Group = function (props) {
-	let className = 'form-group';
-	className = setDefaultClassName(props, className);
-	return (
-		<div className={className} name={props.name}>
-			{props.children}
-		</div>
-	);
-}
-
-Form.Group.Control = function(props) {
-	return (
-		<Form.Group name="hello">
+		<Form.Group>
 			<Form.Control {...props} />
 		</Form.Group>
 	);
 };
 
-Form.Row = function (props) {
-	let className = 'form-row';
-	className = setDefaultClassName(props, className);
-	return (
-		<div className={className}>
-			{props.children}
-		</div>
-	);
-}
+Form.Row = generateElementByClassName('form-row');
 
 Form.Control = React.forwardRef(function (props, ref) {
 	let className = 'form-control';
@@ -185,120 +148,29 @@ export var Input = React.forwardRef(function (props, ref) {
 	);
 });
 
-Input.Group = function (props) {
-	let className = 'input-group';
-	className = setDefaultClassName(props, className);
-	return (
-		<div className={className}>
-			{props.children}
-		</div>
-	);
-};
+Input.Group = generateElementByClassName('input-group');
+Input.Group.Prepend = generateElementByClassName('input-group-prepend');
+Input.Group.Text = generateElementByClassName('input-group-text', 'span');
 
-Input.Group.Prepend = function (props) {
-	let className = 'input-group-prepend';
-	className = setDefaultClassName(props, className);
-	return (
-		<div className={className}>
-			{props.children}
-		</div>
-	);
-};
+export var Btn = generateElementByClassName('btn', 'button');
+Btn.Primary = generateElementByClassName('btn btn-primary', 'button');
+Btn.Secondary = generateElementByClassName('btn btn-secondary', 'button');
+Btn.Danger = generateElementByClassName('btn btn-danger', 'button');
+Btn.Warning = generateElementByClassName('btn btn-warning', 'button');
+Btn.Success = generateElementByClassName('btn btn-success', 'button');
 
-Input.Group.Text = function (props) {
-	let className = 'input-group-text';
-	className = setDefaultClassName(props, className);
-	return (
-		<span className={className}>
-			{props.children}
-		</span>
-	);
-};
-
-export function Btn(props) {
-	let className = 'btn';
-	className = setDefaultClassName(props, className);
-	return (
-		<button className={className}>
-			{props.children}
-		</button>
-	);
-};
-
-Btn.Primary = function (props) {
-	let className = 'btn btn-primary';
-	className = setDefaultClassName(props, className);
-	let extractProps = setProps(props);
-	return (
-		<button className={className} {...extractProps}>
-			{props.children}
-		</button>
-	);
-};
-
-Btn.Secondary = function (props) {
-	let className = 'btn btn-secondary';
-	className = setDefaultClassName(props, className);
-	let extractProps = setProps(props);
-	return (
-		<button className={className} {...extractProps}>
-			{props.children}
-		</button>
-	);
-};
-
-Btn.Danger = function (props) {
-	let className = 'btn btn-danger';
-	className = setDefaultClassName(props, className);
-	let extractProps = setProps(props);
-	return (
-		<button className={className} {...extractProps}>
-			{props.children}
-		</button>
-	);
-};
-
-Btn.Warning = function (props) {
-	let className = 'btn btn-warning';
-	className = setDefaultClassName(props, className);
-	return (
-		<button className={className}>
-			{props.children}
-		</button>
-	);
-};
-
-Btn.Success = function (props) {
-	let className = 'btn btn-success';
-	className = setDefaultClassName(props, className);
-	return (
-		<button className={className}>
-			{props.children}
-		</button>
-	);
-};
-
-Col.Auto = function (props) {
-	let className = 'col-auto';
-	className = setDefaultClassName(props, className);
-	return (
-		<div className={className}>
-			{props.children}
-		</div>
-	);
-}
 
 let colSizes = ['xl', 'lg', 'md', 'sm', 'xs'];
 export function Col(props) {
 	let clsNames = [];
 	colSizes.forEach(function (size) {
 		if (props[size]) {
-			if(size === 'xs') {
+			if (size === 'xs') {
 				clsNames.push('col-' + props[size]);
 			} else {
 				clsNames.push('col-' + size + '-' + props[size]);
 			}
-			
+
 		}
 	});
 
@@ -315,20 +187,7 @@ export function Col(props) {
 	);
 }
 
-function setProps(props, propNameList = [], defaultProps = {}) {
-	let extractProps = {};
-	propNameList.forEach(function (value) {
-		extractProps[value] = props[value] || defaultProps[value] || null;
-	});
-	for(var value in props) {
-		if(typeof props[value] !== 'boolean') {
-			if(value !== 'className') {
-				extractProps[value] = props[value];
-			}
-		}
-	}
-	return extractProps;
-}
+Col.Auto = generateElementByClassName('col-auto');
 
 export function Modal(props) {
 	let className = 'modal';
@@ -352,35 +211,9 @@ Modal.Dialog = function (props) {
 	);
 }
 
-Modal.Content = function (props) {
-	let className = 'modal-content';
-	className = setDefaultClassName(props, className);
-	return (
-		<div className={className} >
-			{props.children}
-		</div>
-	);
-}
-
-Modal.Header = function (props) {
-	let className = 'modal-header';
-	className = setDefaultClassName(props, className);
-	return (
-		<div className={className} >
-			{props.children}
-		</div>
-	);
-}
-
-Modal.Title = function (props) {
-	let className = 'modal-title';
-	className = setDefaultClassName(props, className);
-	return (
-		<h5 className={className} >
-			{props.children}
-		</h5>
-	);
-}
+Modal.Content = generateElementByClassName('modal-content');
+Modal.Header = generateElementByClassName('modal-header');
+Modal.Title = generateElementByClassName('modal-title', 'h5');
 
 Modal.Close = function (props) {
 	return (
@@ -390,59 +223,28 @@ Modal.Close = function (props) {
 	);
 }
 
-Modal.Body = function (props) {
-	let className = 'modal-body';
-	className = setDefaultClassName(props, className);
-	return (
-		<div className={className} >
-			{props.children}
-		</div>
-	);
-}
+Modal.Body = generateElementByClassName('modal-body');
+Modal.Footer = generateElementByClassName('modal-footer');
 
-Modal.Footer = function (props) {
-	let className = 'modal-footer';
-	className = setDefaultClassName(props, className);
-	return (
-		<div className={className} >
-			{props.children}
-		</div>
-	);
-}
+export var Pagination = generateElementByClassName('pagination', 'ul');
+Pagination.Item = generateElementByClassName('page-item', 'li');
+Pagination.Item.Link = generateElementByClassName('page-link', 'a');
 
-export function Pagination(props) {
-	let className = 'pagination';
+export var Navbar = generateElementByClassName('navbar', 'ul');
+
+Navbar.Toggler = function (props) {
+	let className = 'navbar-toggler';
 	let modalProps = setProps(props);
 	className = setDefaultClassName(props, className);
 	return (
-		<ul className={className} {...modalProps} >
-			{props.children}
-		</ul>
+		<button className={className} type="button" data-toggle="collapse" {...modalProps} aria-expanded="false" aria-label="Toggle navigation">
+			<span className="navbar-toggler-icon"></span>
+		</button>
 	);
 };
 
-Pagination.Item = function(props) {
-	let className = 'page-item';
-	let modalProps = setProps(props);
-	className = setDefaultClassName(props, className);
-	return (
-		<li className={className} {...modalProps} >
-			{props.children}
-		</li>
-	);
-};
-
-Pagination.Item.Link = function(props) {
-	let className = 'page-link';
-	let modalProps = setProps(props);
-	className = setDefaultClassName(props, className);
-	return (
-		<a className={className} {...modalProps} >
-			{props.children}
-		</a>
-	);
-};
+Navbar.Collapse = generateElementByClassName('collapse navbar-collapse');
 
 export default {
-	Container, Row, Col, Card, Display, Text, Form, Input, Btn, Modal, Pagination
+	Container, Row, Col, Card, Display, Text, Form, Input, Btn, Modal, Pagination, Navbar
 };
