@@ -5,7 +5,7 @@ var mainMenu = [
 		path: '/'
 	},
 	{
-		name: 'Danh muc 1',
+		name: 'Danh mục 1',
 		path: '/category/1'
 	}
 ];

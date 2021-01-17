@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
 	BrowserRouter as Router,
 	Switch
@@ -6,14 +6,17 @@ import {
 import Navbar from 'Menu/Block/Navbar';
 import Menu from 'Menu/Block/Menu';
 import menuConfig from './config/menu';
-
+import menuJQuery from './web/js/menu';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import AppRoutes from './Routes';
 import {Navbar as BSNavbar} from 'Common/Bootstrap/Block/Bootstrap';
 
 let { mainMenu } = menuConfig;
-let $ = window.jQuery;
+
 function EducationEduMarketApp() {
+	useEffect(() => {
+		menuJQuery();
+	})
 	return (
 		<Router>
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -39,21 +42,5 @@ function EducationEduMarketApp() {
 
 	);
 }
-
-$('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
-	if (!$(this).next().hasClass('show')) {
-		$(this).parents('.dropdown-menu').first().find('.show').removeClass('show');
-	}
-	var $subMenu = $(this).next('.dropdown-menu');
-	$subMenu.toggleClass('show');
-
-
-	$(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) {
-		$('.dropdown-submenu .show').removeClass('show');
-	});
-
-
-	return false;
-});
 
 export default EducationEduMarketApp;

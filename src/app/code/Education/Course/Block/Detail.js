@@ -108,7 +108,7 @@ export default function EducationCourseBlockDetail({ courseId }) {
 								<input type="text" name="quantity" defaultValue="1" className="qty" />
 								<div className="qtyplus">+</div>
 							</form>
-							<a href="#" className="round-black-btn">Add to Cart</a>
+							<a href="/#" className="round-black-btn">Add to Cart</a>
 						</div>
 					</div>
 				</Col>
@@ -169,7 +169,7 @@ export default function EducationCourseBlockDetail({ courseId }) {
 				</div>
 			</div>
 
-			<div>Get free icon packs for your next project at <a href="http://iiicons.in/" target="_blank">www.iiicons.in</a></div>
+			<div>Get free icon packs for your next project at <a href="http://iiicons.in/" target="_blank" rel="noopener noreferrer">www.iiicons.in</a></div>
 		</>
 	)
 }

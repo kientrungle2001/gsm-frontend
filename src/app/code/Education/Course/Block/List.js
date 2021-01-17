@@ -5,11 +5,7 @@ import { Link } from 'react-router-dom';
 var Product = {};
 
 function EducationCourseBlockList(props) {
-	let courseList = [];
-	let limit = props.limit || 24;
-	for (let i = 1; i <= limit; i++) {
-		courseList.push(i);
-	}
+	let courseList = [...Array(props.limit || 24).keys()].map((i) => i + 1);
 	return (
 		<>
 			<Row id="courseList">

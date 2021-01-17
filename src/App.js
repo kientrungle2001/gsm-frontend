@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.scss';
-import EducationEduMarketApp from 'Education/EduMarket/App';
+import EduMarketApp from 'Education/EduMarket/App';
 function App() {
 	return (
-		<EducationEduMarketApp />		
+		<EduMarketApp />		
 	);
 }
 
